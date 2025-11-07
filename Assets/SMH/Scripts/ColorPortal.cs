@@ -3,8 +3,7 @@ using UnityEngine;
 public class ColorPortal : MonoBehaviour
 {
     public int objectColorIndex;
-    [SerializeField]
-    int portalID;
+    public GameObject linkedPortal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

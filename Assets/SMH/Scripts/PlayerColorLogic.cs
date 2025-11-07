@@ -6,25 +6,24 @@ public class PlayerColorLogic : MonoBehaviour
     [SerializeField]
     ColorManager colorManager;
 
-    public string playerColor;
     public int playerColorIndex = 0;
 
     public GameObject interactionUI;
     private SpriteRenderer sr;
 
-    private ColorChangeBlock colorChangeBlock;
+    private ColorChangeBlock currentChangeBlock;
     private bool canChangeColor = false;
 
-    private ColorPortal colorPortal;
+    private ColorPortal currentPortal;
     private bool canRidePortal = false;
 
     private Vector2 movement = Vector2.zero;
     public float moveSpeed = 5f;
 
-    private void Awake()
+    void Start()
     {
-        playerColor = colorManager.getColor(playerColorIndex);
         sr = GetComponent<SpriteRenderer>();
+        sr.sprite = colorManager.getSprite(playerColorIndex);
     }
 
     void Update()
@@ -39,40 +38,71 @@ public class PlayerColorLogic : MonoBehaviour
         // Change color when interacting with a ColorChangeBlock
         if (Input.GetKeyDown(KeyCode.F) && canChangeColor)
         {
-            playerColorIndex = colorChangeBlock.objectColorIndex;
-            playerColor = colorManager.getColor(playerColorIndex);
-            sr.sprite = colorManager.getSprite(colorChangeBlock.objectColorIndex);
+            playerColorIndex = currentChangeBlock.objectColorIndex;
+            sr.sprite = colorManager.getSprite(currentChangeBlock.objectColorIndex);
+        }
+
+        // Ride the ColorPortal when interacting with it
+        if (Input.GetKeyDown(KeyCode.F) && canRidePortal)
+        {
+            transform.position = currentPortal.linkedPortal.transform.position;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        // Show interaction UI when near a ColorChangeBlock
-        if (collision.gameObject.CompareTag("ColorChangeBlock"))
+        // 포탈
+        if (other.CompareTag("ColorPortal"))
         {
-            interactionUI.SetActive(true);
-            colorChangeBlock = collision.gameObject.GetComponent<ColorChangeBlock>();
-            canChangeColor = true;
+            if (other.TryGetComponent(out ColorPortal portal))
+            {
+                // 색 매칭되는 포탈만 활성
+                if (portal.objectColorIndex == playerColorIndex)
+                {
+                    currentPortal = portal;
+                    canRidePortal = true;
+                    interactionUI.SetActive(true);
+                }
+            }
         }
 
-
-        if (collision.gameObject.CompareTag("ColorPortal"))
+        // 컬러 체인지 블록
+        if (other.CompareTag("ColorChangeBlock"))
         {
-            ColorPortal colorPortal = collision.gameObject.GetComponent<ColorPortal>();
-            if (colorPortal.objectColorIndex == playerColorIndex)
+            if (other.TryGetComponent(out ColorChangeBlock block))
             {
-                canRidePortal = true;
+                if (block.objectColorIndex == playerColorIndex)
+                {
+                    currentChangeBlock = block;
+                    canChangeColor = true;
+                    interactionUI.SetActive(true);
+                }
             }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D other)
     {
-        // Hide interaction UI when leaving a ColorChangeBlock
-        if (collision.gameObject.CompareTag("ColorChangeBlock"))
+        // 포탈에서 벗어남
+        if (other.CompareTag("ColorPortal"))
         {
-            interactionUI.SetActive(false);
-            canChangeColor = false;
+            if (currentPortal != null && other.gameObject == currentPortal.gameObject)
+            {
+                currentPortal = null;
+                canRidePortal = false;
+                interactionUI.SetActive(false);
+            }
+        }
+
+        // 컬러 블록에서 벗어남
+        if (other.CompareTag("ColorChangeBlock"))
+        {
+            if (currentChangeBlock != null && other.gameObject == currentChangeBlock.gameObject)
+            {
+                currentChangeBlock = null;
+                canChangeColor = false;
+                interactionUI.SetActive(false);
+            }
         }
     }
 }
