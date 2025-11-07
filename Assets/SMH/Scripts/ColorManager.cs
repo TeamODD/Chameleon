@@ -10,7 +10,7 @@ public enum ColorType
     Yellow = 4
 }
 
-public class ScriptManager : MonoBehaviour
+public class ColorManager : MonoBehaviour
 {
     public ColorType[] colorList = {
         ColorType.White,
@@ -19,6 +19,14 @@ public class ScriptManager : MonoBehaviour
         ColorType.Green,
         ColorType.Yellow
     };
+
+    // Player sprites
+    public Sprite[] playerSprites = new Sprite[5];
+
+    public Sprite getSprite(int colorIndex)
+    {
+        return playerSprites[colorIndex];
+    }
 
     public bool isSameColor(int playercolorIndex, int objectcolorIndex)
     {
