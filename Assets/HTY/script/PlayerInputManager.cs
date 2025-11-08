@@ -7,50 +7,27 @@ public class PlayerInputManager : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        capsuleCollider2D = rb.GetComponent<CapsuleCollider2D>();
         rb.gravityScale = -Physics2D.gravity.y; // MORE smooth gravity
     }
 
     [SerializeField] private float Speed = 10f; 
     [SerializeField] private float Height = 10f;
     [SerializeField] private bool _isOnGround = false;
+    [SerializeField] private LayerMask collisionLayer;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("obstacle"))
-        {
-            _isOnGround = false;
-            foreach (ContactPoint2D contact in collision.contacts) // I DONT KNOW 
-            {
 
-                if (contact.normal.y > 0.5f)
-                {
-                    _isOnGround = false;
-                    Debug.Log("Enter_Collision : Ground Detected");
-                    break;
-                }
-            }
-        }
-        else
-        {
-            _isOnGround = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("obstacle"))
-        {
-            Debug.Log("Exit_Collision");
-            if (_isOnGround == false)
-            {
-                _isOnGround = true;
-            }
-        }
-    }
+    private Vector3 footPosition;
+    private CapsuleCollider2D capsuleCollider2D;
 
     public void movePlayer()
     {
+        Bounds bounds = capsuleCollider2D.bounds;
+        footPosition = new Vector2(bounds.center.x, bounds.min.y);
+        _isOnGround = Physics2D.OverlapCircle(footPosition, 0.1f, collisionLayer);
+
         _movePlayer();
+
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -63,11 +40,13 @@ public class PlayerInputManager : MonoBehaviour
                 // So, I DONT KNOW HOW IT WORKS. :> LOL
                 // No. I Can EXPLAIN now, HOW IT WORKS. :)
                 Jump();
+
             }
             else
             {
                 Debug.Log("Player is Not OnGround");
             }
+
         }
     }
     private void _movePlayer()
@@ -90,7 +69,10 @@ public class PlayerInputManager : MonoBehaviour
         float initialVelocity = CalculateInitialVelocity(Height); // float Height = 10f;
         rb.linearVelocityY = 0;
         rb.AddForce(Vector2.up * initialVelocity, ForceMode2D.Impulse);
+        
         _isOnGround = false;
+        Debug.Log("jump1");
+
     }
 
     private float CalculateInitialVelocity(float height)
