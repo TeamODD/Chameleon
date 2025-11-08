@@ -20,6 +20,9 @@ public class PlayerColorLogic : MonoBehaviour
     private ColorObstacle currentObstacle;
     private bool canInterObstacle = false;
 
+    private ColorSwitch currentSwitch;
+    private bool canInterSwitch = false;
+
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -64,6 +67,11 @@ public class PlayerColorLogic : MonoBehaviour
                 currentObstacle.InteractionYellow();
             }
         }
+
+        if (canInterSwitch)
+        {
+            currentSwitch.SwitchOn();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -107,6 +115,19 @@ public class PlayerColorLogic : MonoBehaviour
                 }
             }
         }
+
+        // 색 스위치
+        if (other.CompareTag("ColorSwitch"))
+        {
+            if (other.TryGetComponent(out ColorSwitch colorSwitch))
+            {
+                if (colorSwitch.objectColorIndex == playerColorIndex)
+                {
+                    currentSwitch = colorSwitch;
+                    canInterSwitch = true;
+                }
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -141,6 +162,16 @@ public class PlayerColorLogic : MonoBehaviour
                 currentObstacle = null;
                 canInterObstacle = false;
                 interactionUI.SetActive(false);
+            }
+        }
+
+        // 색 스위치에서 벗어남
+        if (other.CompareTag("ColorSwitch"))
+        {
+            if(currentSwitch != null && other.gameObject == currentSwitch.gameObject)
+            {
+                currentSwitch = null;
+                canInterSwitch = false;
             }
         }
     }

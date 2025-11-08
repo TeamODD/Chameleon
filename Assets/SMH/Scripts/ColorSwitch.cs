@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class ColorSwitch : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int objectColorIndex;
+    [SerializeField]
+    Transform targetPlatform, arrivePlatform;
 
-    // Update is called once per frame
-    void Update()
+    public void SwitchOn()
     {
-        
+        targetPlatform.position = Vector2.MoveTowards(targetPlatform.position, arrivePlatform.position, 5f * Time.deltaTime);
     }
 }
