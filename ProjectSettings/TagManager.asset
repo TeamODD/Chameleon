@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ColorChangeBlock
   - ColorPortal
+  - ColorOpstacle
   layers:
   - Default
   - TransparentFX

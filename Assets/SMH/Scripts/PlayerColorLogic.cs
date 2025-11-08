@@ -17,6 +17,9 @@ public class PlayerColorLogic : MonoBehaviour
     private ColorPortal currentPortal;
     private bool canRidePortal = false;
 
+    private ColorObstacle currentObstacle;
+    private bool canInterObstacle = false;
+
     private Vector2 movement = Vector2.zero;
     public float moveSpeed = 5f;
 
@@ -46,6 +49,30 @@ public class PlayerColorLogic : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && canRidePortal)
         {
             transform.position = currentPortal.linkedPortal.transform.position;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && canInterObstacle)
+        {
+            // Red color
+            if(playerColorIndex == 1)
+            {
+                //
+            }
+            // Blue color
+            else if(playerColorIndex == 2)
+            {
+                //
+            }
+            // Green color
+            else if(playerColorIndex == 3)
+            {
+                //
+            }
+            // Yellow color
+            else if(playerColorIndex == 4)
+            {
+                //
+            }
         }
     }
 
@@ -79,6 +106,20 @@ public class PlayerColorLogic : MonoBehaviour
                 }
             }
         }
+
+        // 색 장애물
+        if (other.CompareTag("ColorObstacle"))
+        {
+            if (other.TryGetComponent(out ColorObstacle obstacle))
+            {
+                if (obstacle.objectColorIndex == playerColorIndex)
+                {
+                    currentObstacle = obstacle;
+                    canInterObstacle = true;
+                    interactionUI.SetActive(true);
+                }
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -101,6 +142,17 @@ public class PlayerColorLogic : MonoBehaviour
             {
                 currentChangeBlock = null;
                 canChangeColor = false;
+                interactionUI.SetActive(false);
+            }
+        }
+
+        // 색 장애물에서 벗어남
+        if (other.CompareTag("ColorObstacle"))
+        {
+            if (currentObstacle != null && other.gameObject == currentObstacle.gameObject)
+            {
+                currentObstacle = null;
+                canInterObstacle = false;
                 interactionUI.SetActive(false);
             }
         }
