@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7193390821939017755}
   - component: {fileID: 7628837753269508815}
   - component: {fileID: 3447157211575028985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: YellowPlatform
   m_TagString: YellowPlatform
   m_Icon: {fileID: 0}
