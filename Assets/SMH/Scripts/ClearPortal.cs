@@ -6,12 +6,14 @@ public class ClearPortal : MonoBehaviour
 {
     [SerializeField]
     string nextScene;
+    GameObject player;
     PlayerColorLogic pcl;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        pcl = GetComponent<PlayerColorLogic>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        pcl = player.GetComponent<PlayerColorLogic>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
