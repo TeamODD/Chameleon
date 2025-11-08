@@ -16,7 +16,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("platform"))
+        if (collision.gameObject.CompareTag("obstacle"))
         {
             _isOnGround = false;
             foreach (ContactPoint2D contact in collision.contacts) // I DONT KNOW 
@@ -38,7 +38,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("platform"))
+        if (collision.gameObject.CompareTag("obstacle"))
         {
             Debug.Log("Exit_Collision");
             if (_isOnGround == false)
