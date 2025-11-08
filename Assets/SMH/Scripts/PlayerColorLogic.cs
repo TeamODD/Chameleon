@@ -20,6 +20,9 @@ public class PlayerColorLogic : MonoBehaviour
     private ColorObstacle currentObstacle;
     private bool canInterObstacle = false;
 
+    private ColorSwitch currentSwitch;
+    private bool canInterSwitch = false;
+
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -41,6 +44,7 @@ public class PlayerColorLogic : MonoBehaviour
             transform.position = currentPortal.linkedPortal.transform.position;
         }
 
+        // Interact with the ColorObstacle
         if (Input.GetKeyDown(KeyCode.F) && canInterObstacle)
         {
             // Red color
@@ -63,6 +67,12 @@ public class PlayerColorLogic : MonoBehaviour
             {
                 currentObstacle.InteractionYellow();
             }
+        }
+
+        // Interact with the ColorSwitch
+        if (canInterSwitch)
+        {
+            currentSwitch.SwitchOn();
         }
     }
 
@@ -107,6 +117,17 @@ public class PlayerColorLogic : MonoBehaviour
                 }
             }
         }
+
+        // 색 스위치
+        if (other.CompareTag("ColorSwitch"))
+        {
+            if (other.TryGetComponent(out ColorSwitch colorSwitch))
+            {
+                currentSwitch = colorSwitch;
+                canInterSwitch = true;
+                interactionUI.SetActive(true);
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -140,6 +161,17 @@ public class PlayerColorLogic : MonoBehaviour
             {
                 currentObstacle = null;
                 canInterObstacle = false;
+                interactionUI.SetActive(false);
+            }
+        }
+
+        // 색 스위치에서 벗어남
+        if (other.CompareTag("ColorSwitch"))
+        {
+            if(currentSwitch != null && other.gameObject == currentSwitch.gameObject)
+            {
+                currentSwitch = null;
+                canInterSwitch = false;
                 interactionUI.SetActive(false);
             }
         }
