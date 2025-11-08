@@ -38,11 +38,18 @@ public class IngameESC : MonoBehaviour
         }
         
     }
-    public void RestartGame()
+    /*public void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }*/
+    public void BackToTitle()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
+
+
     public void OpenVolumePanel()
     {
         settingPanel.SetActive(false);
