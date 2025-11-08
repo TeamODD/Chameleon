@@ -8,6 +8,11 @@ TagManager:
   - ColorPortal
   - ColorSwitch
   - ColorObstacle
+  - obstacle
+  - GameOverBox
+  - BluePlatform
+  - GreenPlatform
+  - YellowPlatform
   layers:
   - Default
   - TransparentFX

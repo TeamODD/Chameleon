@@ -46,22 +46,22 @@ public class PlayerColorLogic : MonoBehaviour
             // Red color
             if(playerColorIndex == 1)
             {
-                //
+                currentObstacle.InteractionRed();
             }
             // Blue color
             else if(playerColorIndex == 2)
             {
-                //
+                currentObstacle.InteractionBlue();
             }
             // Green color
             else if(playerColorIndex == 3)
             {
-                //
+                currentObstacle.InteractionGreen();
             }
             // Yellow color
             else if(playerColorIndex == 4)
             {
-                //
+                currentObstacle.InteractionYellow();
             }
         }
     }
