@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GoToSelect : MonoBehaviour
 {
     [SerializeField]private GameObject stageSelect;
+    [SerializeField] private GameObject MainMenu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,7 +15,7 @@ public class GoToSelect : MonoBehaviour
     
     public void GoToSelectScene ()
     {
-        gameObject.SetActive(false);
+        MainMenu.SetActive(false);
         stageSelect.SetActive(true);
     }
 }

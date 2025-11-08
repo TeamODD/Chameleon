@@ -3,19 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class ReturnToMainMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject currentScean;
+    
+  
 
     // Update is called once per frame
-    void Update()
+
+    public void GoToMainScene()
     {
-        
-    }
-    public void ReturnToMainMenuScene()
-    {
-        SceneManager.LoadScene("MainMenu");
+
+        currentScean.SetActive(false);
+        MainMenu.SetActive(true);
     }
 }
