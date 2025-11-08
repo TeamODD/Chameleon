@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 637405847726259549}
+  volumePanel: {fileID: 0}
 --- !u!1 &1106466799111179956
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: Back To Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3638eb60faddebb4bb554fa3b26e2f1f, type: 2}
   m_sharedMaterial: {fileID: 7178692531142552434, guid: 3638eb60faddebb4bb554fa3b26e2f1f, type: 2}
@@ -429,8 +430,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5584106341379974229}
   - {fileID: 3164835158706212196}
+  - {fileID: 5584106341379974229}
   - {fileID: 586244964419557332}
   m_Father: {fileID: 8009291396639568127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1033,7 +1034,7 @@ GameObject:
   - component: {fileID: 1604996140351881868}
   - component: {fileID: 6222687883455756810}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: BackToTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'VolumePanel '
       objectReference: {fileID: 0}
+    - target: {fileID: 5145354967872749228, guid: bb48d80eee4c6f24bafe83ba011bad4a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5295214506344978164, guid: bb48d80eee4c6f24bafe83ba011bad4a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -489,13 +493,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PausePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 637405847726259549, guid: 5ab371725b67dd844aa6e91a97d8a3eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1604996140351881868, guid: 5ab371725b67dd844aa6e91a97d8a3eb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6483931266195166699}
     - target: {fileID: 1604996140351881868, guid: 5ab371725b67dd844aa6e91a97d8a3eb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartGame
+      value: BackToTitle
       objectReference: {fileID: 0}
     - target: {fileID: 1604996140351881868, guid: 5ab371725b67dd844aa6e91a97d8a3eb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -544,6 +552,10 @@ PrefabInstance:
     - target: {fileID: 5584106341379974229, guid: 5ab371725b67dd844aa6e91a97d8a3eb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194721781106474313, guid: 5ab371725b67dd844aa6e91a97d8a3eb, type: 3}
+      propertyPath: m_Name
+      value: ReturnMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 8009291396639568127, guid: 5ab371725b67dd844aa6e91a97d8a3eb, type: 3}
       propertyPath: m_Pivot.x
