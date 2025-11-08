@@ -8,17 +8,20 @@ public class ColorObstacle : MonoBehaviour
     GameObject tri;
     private Collider2D col;
 
+    // blue
     [SerializeField]
     Sprite bluePlatformSprite;
 
     void Start()
     {
+        // red
         if (objectColorIndex == 1)
         {
             col = tri.GetComponent<Collider2D>();
             col.isTrigger = false;
         }
 
+        // green
         GameObject[] greenPlatform = GameObject.FindGameObjectsWithTag("GreenPlatform");
         foreach (GameObject platform in greenPlatform)
         {
@@ -30,8 +33,11 @@ public class ColorObstacle : MonoBehaviour
 
     public void InteractionRed()
     {
+        /*
         col.isTrigger = true;
         tri.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        */
+        Destroy(gameObject);
     }
 
     public void InteractionBlue()
@@ -41,6 +47,7 @@ public class ColorObstacle : MonoBehaviour
         {
             platform.GetComponent<Collider2D>().isTrigger = false;
             platform.GetComponent<SpriteRenderer>().sprite = bluePlatformSprite;
+            platform.gameObject.tag = "FrozenPlatform";
         }
     }
 

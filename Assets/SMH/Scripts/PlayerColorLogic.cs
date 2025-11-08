@@ -44,10 +44,12 @@ public class PlayerColorLogic : MonoBehaviour
             transform.position = currentPortal.linkedPortal.transform.position;
         }
 
+        // Interact with ColorObstacle
         if (Input.GetKeyDown(KeyCode.F) && canInterObstacle)
         {
+            interactionUI.SetActive(false);
             // Red color
-            if(playerColorIndex == 1)
+            if (playerColorIndex == 1)
             {
                 currentObstacle.InteractionRed();
             }
@@ -68,10 +70,13 @@ public class PlayerColorLogic : MonoBehaviour
             }
         }
 
+        /*
+        // Interact with ColorSwitch
         if (canInterSwitch)
         {
             currentSwitch.SwitchOn();
         }
+        */
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -124,7 +129,8 @@ public class PlayerColorLogic : MonoBehaviour
                 if (colorSwitch.objectColorIndex == playerColorIndex)
                 {
                     currentSwitch = colorSwitch;
-                    canInterSwitch = true;
+                    //canInterSwitch = true;
+                    currentSwitch.SwitchOn();
                 }
             }
         }
@@ -161,7 +167,7 @@ public class PlayerColorLogic : MonoBehaviour
             {
                 currentObstacle = null;
                 canInterObstacle = false;
-                interactionUI.SetActive(false);
+                //interactionUI.SetActive(false);
             }
         }
 
@@ -171,7 +177,7 @@ public class PlayerColorLogic : MonoBehaviour
             if(currentSwitch != null && other.gameObject == currentSwitch.gameObject)
             {
                 currentSwitch = null;
-                canInterSwitch = false;
+                //canInterSwitch = false;
             }
         }
     }

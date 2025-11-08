@@ -13,6 +13,8 @@ TagManager:
   - BluePlatform
   - GreenPlatform
   - YellowPlatform
+  - FrozenPlatform
+  - RedPlatform
   layers:
   - Default
   - TransparentFX
