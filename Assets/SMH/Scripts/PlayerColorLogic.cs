@@ -20,9 +20,6 @@ public class PlayerColorLogic : MonoBehaviour
     private ColorObstacle currentObstacle;
     private bool canInterObstacle = false;
 
-    private Vector2 movement = Vector2.zero;
-    public float moveSpeed = 5f;
-
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -31,13 +28,6 @@ public class PlayerColorLogic : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.A))
-            movement += Vector2.left;
-        if(Input.GetKey(KeyCode.D))
-            movement += Vector2.right;
-        transform.Translate(moveSpeed * movement * Time.deltaTime, Space.World);
-        movement = Vector2.zero;
-
         // Change color when interacting with a ColorChangeBlock
         if (Input.GetKeyDown(KeyCode.F) && canChangeColor)
         {
