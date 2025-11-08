@@ -4,9 +4,15 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - GameOverBox
-  - platform
+  - ColorChangeBlock
+  - ColorPortal
+  - ColorSwitch
+  - ColorObstacle
   - obstacle
+  - GameOverBox
+  - BluePlatform
+  - GreenPlatform
+  - YellowPlatform
   layers:
   - Default
   - TransparentFX
