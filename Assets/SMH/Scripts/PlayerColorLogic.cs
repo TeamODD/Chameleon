@@ -44,7 +44,6 @@ public class PlayerColorLogic : MonoBehaviour
             transform.position = currentPortal.linkedPortal.transform.position;
         }
 
-        // Interact with the ColorObstacle
         if (Input.GetKeyDown(KeyCode.F) && canInterObstacle)
         {
             // Red color
@@ -69,7 +68,6 @@ public class PlayerColorLogic : MonoBehaviour
             }
         }
 
-        // Interact with the ColorSwitch
         if (canInterSwitch)
         {
             currentSwitch.SwitchOn();
@@ -123,9 +121,11 @@ public class PlayerColorLogic : MonoBehaviour
         {
             if (other.TryGetComponent(out ColorSwitch colorSwitch))
             {
-                currentSwitch = colorSwitch;
-                canInterSwitch = true;
-                interactionUI.SetActive(true);
+                if (colorSwitch.objectColorIndex == playerColorIndex)
+                {
+                    currentSwitch = colorSwitch;
+                    canInterSwitch = true;
+                }
             }
         }
     }
@@ -172,7 +172,6 @@ public class PlayerColorLogic : MonoBehaviour
             {
                 currentSwitch = null;
                 canInterSwitch = false;
-                interactionUI.SetActive(false);
             }
         }
     }

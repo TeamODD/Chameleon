@@ -4,13 +4,10 @@ public class ColorSwitch : MonoBehaviour
 {
     public int objectColorIndex;
     [SerializeField]
-    Transform targetPlatform, arrivePoint;
+    Transform targetPlatform, arrivePlatform;
 
     public void SwitchOn()
     {
-        while(targetPlatform.position != arrivePoint.position)
-        {
-            targetPlatform.position = Vector3.MoveTowards(targetPlatform.position, arrivePoint.position, 5f * Time.deltaTime);
-        }
+        targetPlatform.position = Vector2.MoveTowards(targetPlatform.position, arrivePlatform.position, 5f * Time.deltaTime);
     }
 }
