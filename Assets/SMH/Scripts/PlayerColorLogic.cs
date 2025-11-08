@@ -88,12 +88,9 @@ public class PlayerColorLogic : MonoBehaviour
         {
             if (other.TryGetComponent(out ColorChangeBlock block))
             {
-                if (block.objectColorIndex == playerColorIndex)
-                {
-                    currentChangeBlock = block;
-                    canChangeColor = true;
-                    interactionUI.SetActive(true);
-                }
+                currentChangeBlock = block;
+                canChangeColor = true;
+                interactionUI.SetActive(true);
             }
         }
 
