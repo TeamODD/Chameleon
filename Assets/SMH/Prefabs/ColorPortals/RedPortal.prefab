@@ -167,4 +167,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1e461e394f678468b9e1816eb372a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxClip: {fileID: 8300000, guid: 47c50db1b19491948bdbe505fef8263c, type: 3}
+  sfxClip: {fileID: 8300000, guid: 13f07acb726eccc4a86f1ee0dfbd94a1, type: 3}
