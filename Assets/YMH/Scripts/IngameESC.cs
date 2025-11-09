@@ -12,6 +12,11 @@ public class IngameESC : MonoBehaviour
         settingPanel.SetActive(false);
         volumePanel.SetActive(false);
         Time.timeScale = 1f;
+        // 커서 숨기기
+        Cursor.visible = false;
+
+        // 커서 화면 중앙에 고정
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -28,12 +33,16 @@ public class IngameESC : MonoBehaviour
             {
                 settingPanel.SetActive(false);
                 Time.timeScale = 1f;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 settingPanel.SetActive(true);
                 Time.timeScale = 0f;
                 //게임 일시정지
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
         
@@ -46,6 +55,8 @@ public class IngameESC : MonoBehaviour
     public void BackToTitle()
     {
         Time.timeScale = 1f;
+
+        RedObstacleSFX.SetSceneChanging(true);
         SceneManager.LoadScene("MainMenu");
     }
 

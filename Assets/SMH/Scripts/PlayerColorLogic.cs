@@ -21,7 +21,7 @@ public class PlayerColorLogic : MonoBehaviour
     private bool canInterObstacle = false;
 
     private ColorSwitch currentSwitch;
-    private bool canInterSwitch = false;
+    //private bool canInterSwitch = false;
 
     void Start()
     {
