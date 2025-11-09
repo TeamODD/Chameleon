@@ -6,6 +6,7 @@ public class PlayerInputManager : MonoBehaviour
 
     void Start()
     {
+        spriterender = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider2D = rb.GetComponent<CapsuleCollider2D>();
         rb.gravityScale = -Physics2D.gravity.y; // MORE smooth gravity
@@ -15,8 +16,8 @@ public class PlayerInputManager : MonoBehaviour
     [SerializeField] private float Height = 10f;
     [SerializeField] private bool _isOnGround = false;
     [SerializeField] private LayerMask collisionLayer;
-
-
+    private SpriteRenderer spriterender;
+    
     private Vector3 footPosition;
     private CapsuleCollider2D capsuleCollider2D;
 
@@ -55,11 +56,14 @@ public class PlayerInputManager : MonoBehaviour
         {
             transform.Translate(Vector3.left * Speed * Time.deltaTime);
             Debug.Log("Key 'A' has been downed");
+            spriterender.flipX = true;
+
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * Speed * Time.deltaTime);
             Debug.Log("Key 'D' has been downed");
+            spriterender.flipX = false;
         }
     }
 
