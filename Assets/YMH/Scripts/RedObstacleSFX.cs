@@ -1,39 +1,43 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class RedObstacleSFX : MonoBehaviour
 {
     public AudioClip sfxClip;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private static bool isSceneChanging = false;
-
+    private static bool isSceneChanging = false; // 씬 전환 플래그
     private void Awake()
     {
-        // 씬이 바뀔 때 호출되는 이벤트 등록
+        // 씬 전환 이벤트 등록
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
         SceneManager.activeSceneChanged += OnSceneChanged;
     }
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void OnDestroy()
     {
-        
+        if (AudioManager.Instance == null)
+        {
+            return;
+        }
 
         if (sfxClip == null)
         {
-            Debug.LogError("No SFX clip assigned!");
             return;
         }
         if (isSceneChanging) return;
         AudioManager.Instance.PlaySFX(sfxClip);
     }
+    public static void SetSceneChanging(bool value)
+    {
+        isSceneChanging = value;
+    }
+    private void OnSceneUnloaded(Scene scene)
+    {
+        // 씬이 언로드 시작 → 플래그 true
+        isSceneChanging = true;
+    }
     private void OnSceneChanged(Scene oldScene, Scene newScene)
     {
-        // 씬이 바뀌고 있다는 표시
-        isSceneChanging = true;
-
-        // 잠시 뒤 다시 false로 (씬 로드 완료 후)
-        // 씬 로드 완료 후에도 계속 true면 다음 Destroy들에 영향 줌
-        // => 한 프레임 뒤에 false로 리셋
-        // 이건 코루틴으로 구현 가능
+        // 씬 로드 완료 후 한 프레임 뒤 플래그 초기화
         GameObject temp = new GameObject("SceneChangeFlagResetter");
         Object.DontDestroyOnLoad(temp);
         temp.AddComponent<SceneChangeReset>().StartReset(() =>
