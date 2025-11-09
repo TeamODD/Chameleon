@@ -903,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3275472821585668995, guid: 81b362964743ea946b937c7f84c03cbd, type: 3}
       propertyPath: m_TagString
-      value: BluePlatform
+      value: FrozenPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 7589755901448634632, guid: 81b362964743ea946b937c7f84c03cbd, type: 3}
       propertyPath: m_LocalScale.x

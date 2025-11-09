@@ -12,13 +12,13 @@ public class PlayerColorLogic : MonoBehaviour
     private SpriteRenderer sr;
 
     private ColorChangeBlock currentChangeBlock;
-    private bool canChangeColor = false;
+    public bool canChangeColor = false;
 
     private ColorPortal currentPortal;
-    private bool canRidePortal = false;
+    public bool canRidePortal = false;
 
     private ColorObstacle currentObstacle;
-    private bool canInterObstacle = false;
+    public bool canInterObstacle = false;
 
     private ColorSwitch currentSwitch;
     //private bool canInterSwitch = false;

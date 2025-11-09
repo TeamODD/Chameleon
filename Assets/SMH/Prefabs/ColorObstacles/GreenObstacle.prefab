@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 294566135043127777}
   - component: {fileID: 2994074677697574337}
   - component: {fileID: 7751760118886429091}
+  - component: {fileID: -8339947360966140710}
   m_Layer: 0
   m_Name: GreenObstacle
   m_TagString: ColorObstacle
@@ -294,4 +295,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectColorIndex: 3
   tri: {fileID: 3438425757584117704}
+  targetPlatform: {fileID: 0}
   bluePlatformSprite: {fileID: 4294643669078967044, guid: e85c6e02fda4a004b84664f435ad4d73, type: 3}
+--- !u!114 &-8339947360966140710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962683280461267348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005944d21bb23d0429501158798db49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxClip: {fileID: 8300000, guid: 23c645825216fe543a6fefc26ce7fbe8, type: 3}
