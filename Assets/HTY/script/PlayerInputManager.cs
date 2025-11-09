@@ -29,7 +29,6 @@ public class PlayerInputManager : MonoBehaviour
 
         _movePlayer();
 
-
         if (Input.GetKey(KeyCode.Space))
         {
 
@@ -85,5 +84,4 @@ public class PlayerInputManager : MonoBehaviour
         float gravityVelocity = Physics2D.gravity.y * Physics2D.gravity.y;
         return Mathf.Sqrt(2f * gravityVelocity * height);
     }
-    
 }
