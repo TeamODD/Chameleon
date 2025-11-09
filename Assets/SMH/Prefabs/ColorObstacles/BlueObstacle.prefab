@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 6618743049588595668}
   - component: {fileID: 4554474587703124718}
   - component: {fileID: 5348308917126397687}
+  - component: {fileID: 3758951753651147103}
   m_Layer: 0
   m_Name: BlueObstacle
   m_TagString: ColorObstacle
@@ -294,4 +295,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectColorIndex: 2
   tri: {fileID: 4072692824832956583}
+  targetPlatform: {fileID: 0}
   bluePlatformSprite: {fileID: 4294643669078967044, guid: e85c6e02fda4a004b84664f435ad4d73, type: 3}
+--- !u!114 &3758951753651147103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413468725680516231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71253c5125cd52044ba4a8569bcd64d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxClip: {fileID: 8300000, guid: 14cc763adefcd3e48b6cfd926e2312b4, type: 3}
