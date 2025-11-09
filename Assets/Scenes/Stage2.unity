@@ -761,6 +761,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81b362964743ea946b937c7f84c03cbd, type: 3}
+--- !u!1 &635714177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3275472821585668995, guid: 81b362964743ea946b937c7f84c03cbd, type: 3}
+  m_PrefabInstance: {fileID: 635714176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &691749070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -898,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3275472821585668995, guid: 81b362964743ea946b937c7f84c03cbd, type: 3}
       propertyPath: m_TagString
-      value: FrozenPlatform
+      value: BluePlatform
       objectReference: {fileID: 0}
     - target: {fileID: 7589755901448634632, guid: 81b362964743ea946b937c7f84c03cbd, type: 3}
       propertyPath: m_LocalScale.x
@@ -2449,6 +2454,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5348308917126397687, guid: 2ae77f07daea7734381f7328e951f357, type: 3}
+      propertyPath: targetPlatform
+      value: 
+      objectReference: {fileID: 635714177}
     - target: {fileID: 5413468725680516231, guid: 2ae77f07daea7734381f7328e951f357, type: 3}
       propertyPath: m_Name
       value: BlueObstacle

@@ -10,6 +10,8 @@ public class ColorObstacle : MonoBehaviour
 
     // blue
     [SerializeField]
+    GameObject targetPlatform;
+    [SerializeField]
     Sprite bluePlatformSprite;
 
     void Start()
@@ -42,13 +44,11 @@ public class ColorObstacle : MonoBehaviour
 
     public void InteractionBlue()
     {
-        GameObject[] bluePlatform = GameObject.FindGameObjectsWithTag("BluePlatform");
-        foreach (GameObject platform in bluePlatform)
-        {
-            platform.GetComponent<Collider2D>().isTrigger = false;
-            platform.GetComponent<SpriteRenderer>().sprite = bluePlatformSprite;
-            platform.gameObject.tag = "FrozenPlatform";
-        }
+        GameObject platform = targetPlatform;
+        platform.GetComponent<Collider2D>().isTrigger = false;
+        platform.GetComponent<SpriteRenderer>().sprite = bluePlatformSprite;
+        platform.gameObject.tag = "FrozenPlatform";
+
     }
 
     public void InteractionGreen()
