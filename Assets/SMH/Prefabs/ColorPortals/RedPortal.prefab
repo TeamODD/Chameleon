@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8180707152918607553}
   - component: {fileID: 4727246143168392989}
   - component: {fileID: 8432651872516423596}
+  - component: {fileID: -740633020813056020}
   m_Layer: 0
   m_Name: RedPortal
   m_TagString: ColorPortal
@@ -154,3 +155,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectColorIndex: 1
   linkedPortal: {fileID: 0}
+--- !u!114 &-740633020813056020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085262585371841349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1e461e394f678468b9e1816eb372a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxClip: {fileID: 8300000, guid: 47c50db1b19491948bdbe505fef8263c, type: 3}
