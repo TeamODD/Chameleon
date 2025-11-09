@@ -1471,6 +1471,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -740633020813056020, guid: 382fc10845aa7a349a3ff34e706d6f60, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5085262585371841349, guid: 382fc10845aa7a349a3ff34e706d6f60, type: 3}
       propertyPath: m_Name
       value: RedPortal (1)
@@ -2466,6 +2470,10 @@ PrefabInstance:
     - target: {fileID: 954727247812403744, guid: 2972c121c48c9ab45bd262f642798300, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875432781487652531, guid: 2972c121c48c9ab45bd262f642798300, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5137557126101243287, guid: 2972c121c48c9ab45bd262f642798300, type: 3}
       propertyPath: linkedPortal

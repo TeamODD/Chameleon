@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectColorIndex: 1
   tri: {fileID: 6933054482105002945}
+  targetPlatform: {fileID: 0}
   bluePlatformSprite: {fileID: 4294643669078967044, guid: e85c6e02fda4a004b84664f435ad4d73, type: 3}
 --- !u!114 &3980385137988061301
 MonoBehaviour:
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5be2b0fbbdb3db4caa44a9150ee17e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxClip: {fileID: 8300000, guid: 672a35da90bd41a49b9913dca0b9ef08, type: 3}
+  sfxClip: {fileID: 8300000, guid: 0c2f2f840560e214a8d0cd78a376a5f8, type: 3}
 --- !u!1 &6933054482105002945
 GameObject:
   m_ObjectHideFlags: 0
