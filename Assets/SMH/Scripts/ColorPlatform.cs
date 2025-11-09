@@ -14,7 +14,7 @@ public class ColorPlatform : MonoBehaviour
         col = gameObject.GetComponent<Collider2D>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (gameObject.CompareTag("BluePlatform"))
         {
@@ -27,6 +27,11 @@ public class ColorPlatform : MonoBehaviour
             {
                 gameObject.layer = LayerMask.NameToLayer("Default");
                 col.isTrigger = true;
+            }
+            else
+            {
+                gameObject.layer = LayerMask.NameToLayer("platform");
+                col.isTrigger = false;
             }
         }
     }

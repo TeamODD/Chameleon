@@ -10,9 +10,14 @@ public class ColorSwitch : MonoBehaviour
     [SerializeField]
     float speed = 5f;
 
+    private bool isActive = false;
     public void SwitchOn()
     {
-        StartCoroutine(MovePlatform());
+        if (!isActive)
+        {
+            isActive = true;
+            StartCoroutine(MovePlatform());
+        }
     }
 
     IEnumerator MovePlatform()
