@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b2d65c5458b44494d8f0b43a01c0604a
+guid: 94532b876dd47a44eb12f524bf3be469
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2820883774024333060
-    second: "\uBC14\uB2E4\uBE14\uB7ED Center_0"
+      213: -3943661314837488786
+    second: "\uC232_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,18 +40,18 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uBC14\uB2E4\uBE14\uB7ED Center_0"
+      name: "\uC232_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 500
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4073267c8dac52720800000000000000
-      internalID: 2820883774024333060
+      spriteID: e6b59a6bdec4549c0800000000000000
+      internalID: -3943661314837488786
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\uBC14\uB2E4\uBE14\uB7ED Center_0": 2820883774024333060
+      "\uC232_0": -3943661314837488786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
