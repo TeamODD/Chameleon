@@ -10,6 +10,7 @@ public class GameOverManager : MonoBehaviour
         {
             Debug.Log("Game Over");
             string currentScene = SceneManager.GetActiveScene().name;
+            RedObstacleSFX.SetSceneChanging(true);
             SceneManager.LoadScene(currentScene);
             new WaitForSeconds(1f);
         }
